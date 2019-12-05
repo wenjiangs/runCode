@@ -7,7 +7,7 @@
         <li id="css"><a href="javascript:" :class="thisEditIndex==2?'active':''" @click="changeEdit(2)">CSS</a></li>
         <li id="js"><a href="javascript:" :class="thisEditIndex==3?'active':''" @click="changeEdit(3)">JS</a></li>
         <li id="result"><a href="javascript:" :class="thisEditIndex==4?'active':''" @click="changeEdit(4)">Result</a></li>
-        <li id="result"><a href="javascript:" :class="thisEditIndex==5?'active':''" @click="changeEdit(5)">Console</a></li>
+        <li v-if="$route.query.simple" id="result"><a href="javascript:" :class="thisEditIndex==5?'active':''" @click="changeEdit(5)">Console</a></li>
         <li id="run"><a href="javascript:" @click="codeRun"><i class="el-icon-video-play"></i> 运行</a></li>
         <li id="save"><a href="javascript:" @click="saveCode"><i class="el-icon-mobile"></i> 保存</a></li>
         <li id="option"><a href="javascript:" @click="optionDialogVisible = true">
@@ -28,21 +28,21 @@
     </div>
 
     <div class="codeCon">
-      <div class="codeContainer" id="HTMLContainer" v-show="ifShow(1)">
+      <div class="codeContainer" id="HTMLContainer" v-show="thisEditIndex==1">
         <code-tools :codeInfo="codeInfo" @format="formatCode"></code-tools>
         <div class="codeConBox" @format="formatCode">
           <editor v-model="codeObj.code_markup" @init="editorInit" ref="htmlEditor" lang="html" theme="chrome" width="100%"
             height="100%" :options="aceOptions"></editor>
         </div>
       </div>
-      <div class="codeContainer" id="CSSContainer" v-show="ifShow(2)">
+      <div class="codeContainer" id="CSSContainer" v-show="thisEditIndex==2">
         <code-tools :codeInfo="codeInfo" @format="formatCode"></code-tools>
         <div class="codeConBox">
           <editor v-model="codeObj.code_css" @init="editorInit" ref="cssEditor" lang="css" theme="chrome" width="100%"
             height="100%" :options="aceOptions"></editor>
         </div>
       </div>
-      <div class="codeContainer" id="JSContainer" v-show="ifShow(3)">
+      <div class="codeContainer" id="JSContainer" v-show="thisEditIndex==3">
         <code-tools :codeInfo="codeInfo" @format="formatCode"></code-tools>
         <div class="codeConBox">
           <editor v-model="codeObj.code_js" @init="editorInit" ref="jsEditor" lang="javascript" theme="chrome" width="100%"
@@ -50,13 +50,13 @@
         </div>
       </div>
       <div class="codeContainer" id="ResultContainer" :class="['', 'consleBoxSmall', 'consleBoxMedium', 'consleBoxBig'][consoleSize]">
-        <div class="resultBox" v-show="ifShow(4)">
+        <div class="resultBox" v-show="thisEditIndex==4 || !$route.query.simple">
           <iframe class="iframe" id="resultframe" ref="resultframe"></iframe>
         </div>
-        <div class="consleBox" v-show="ifShow(5)">
+        <div class="consleBox" v-show="thisEditIndex==5 || !$route.query.simple">
           <div class="consoleTit">
             <span>
-              <i @click="changeConsoleSize" :class="consoleSize==1?'el-icon-top':'el-icon-bottom'"></i>
+              <i @click="changeConsoleSize" class="consoleChangeBtn" :class="consoleSize==1?'el-icon-top':'el-icon-bottom'"></i>
               <i @click="clearLog" class="el-icon-delete"></i>
               <i @click="showLogHelp" class="el-icon-warning-outline"></i>
             </span>
@@ -103,22 +103,13 @@
     <el-dialog v-if="!$route.query.simple" width="800px" title="嵌入其他页面/分享" :visible.sync="shareVisible" :center="true">
       <div class="sdBox">
         <div class="sdItem">
-          <h3>功能</h3>
-          <template>
-            <el-checkbox-group v-model="sdOpts">
-              <el-checkbox label="HTML"></el-checkbox>
-              <el-checkbox label="CSS"></el-checkbox>
-              <el-checkbox label="JS"></el-checkbox>
-              <el-checkbox label="Result"></el-checkbox>
-            </el-checkbox-group>
-          </template>
           <h3>嵌入代码</h3>
           <div>
-            <el-input type="textarea"></el-input>
+            <el-input type="textarea" v-model="shareIframe"></el-input>
           </div>
         </div>
         <div class="sdItem">
-          <iframe class="iframe" src="http://127.0.0.1:8080/?code=1a0e775f&simple=1" id="shareframe" ref="shareframe"></iframe>
+          <iframe class="iframe" :src="this.WEBURL+'?code='+code_guid+'&simple=1'" id="shareframe" ref="shareframe"></iframe>
         </div>
       </div>
     </el-dialog>

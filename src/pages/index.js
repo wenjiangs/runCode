@@ -83,6 +83,8 @@ export default {
       consoleHelpVisible: false,
       shareVisible: false,
       sdOpts: [],
+      code_guid: '',
+      shareIframe: '',
 
     }
   },
@@ -255,7 +257,7 @@ export default {
     },
 
     initPage() {
-      if (this.$route.query.code) {
+      if (this.$route.query.code && !this.isEmpty(this.$route.query.code)) {
         this.loadingInstance = Loading.service({
           text: '加载中'
         });
@@ -297,7 +299,7 @@ export default {
     },
     changeConsoleSize() {
       this.consoleSize++;
-      if(this.consoleSize==4){
+      if (this.consoleSize == 4) {
         this.consoleSize = 1;
       }
       localStorage.setItem('consoleSize', this.consoleSize);
@@ -343,6 +345,7 @@ export default {
     getEditorInfo() {
       this.$nextTick(() => {
         this.getEditor();
+        if (!this.myEditor) return;
 
         // 获取光标所在的行和列
         this.codeInfo.currentLine = this.myEditor.selection.getCursor().row + 1;
@@ -406,7 +409,7 @@ export default {
       }
     },
 
-    showLogHelp(){
+    showLogHelp() {
       this.consoleHelpVisible = true;
     }
 
@@ -426,6 +429,13 @@ export default {
     if (consoleSize) {
       this.consoleSize = consoleSize * 1
     }
+
+    if (this.$route.query.code && !this.isEmpty(this.$route.query.code)) {
+      this.code_guid = this.$route.query.code;
+    }
+
+    this.shareIframe = '<iframe class="iframe" src="' +
+      this.WEBURL + '?code=' + this.code_guid + '&simple=1"></iframe>';
 
   }
 }

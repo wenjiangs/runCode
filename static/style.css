@@ -515,6 +515,7 @@ div .ace_editor {
   .editNavBar {
     font-size: 12px;
     padding-left: 10px;
+    float: none;
   }
 
   .editNavBar>li>a {
@@ -522,6 +523,10 @@ div .ace_editor {
     height: 31px;
     font-size: 12px;
     padding: 0 8px;
+  }
+  
+  #run{
+    float: right;
   }
 }
 
@@ -613,6 +618,10 @@ div .ace_editor {
   height: 100%;
 }
 
+.sdItem h3:first-child{
+  margin-top: 0;
+}
+
 .sdItem:first-child{
   width: 40%;
   padding-right: 15px;
@@ -634,4 +643,36 @@ div .ace_editor {
 }
 .isShare .codeTools{
   border-bottom: 1px solid #EEE;
+}
+
+.isShare .codeTools{
+  display: none;
+}
+
+.isShare .codeConBox{
+  padding-bottom: 0;
+  border-bottom: 1px solid #EEE;
+}
+
+.isShare .resultBox{
+  display: block;
+  padding-bottom: 0;
+}
+
+.isShare .consoleChangeBtn{
+  display: none;
+}
+
+.isShare .iframe{
+  border-left: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;
+}
+
+.isShare .consleBox{
+  border: 1px solid #EEE;
+  border-top: none;
+}
+
+.isShare .consleBox{
+  height: 100%;
 }

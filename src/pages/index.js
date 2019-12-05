@@ -435,7 +435,7 @@ export default {
     }
 
     this.shareIframe = '<iframe class="iframe" src="' +
-      this.WEBURL + '?code=' + this.code_guid + '&simple=1"></iframe>';
+      this.WEBURL + '#/?code=' + this.code_guid + '&simple=1"></iframe>';
 
   }
 }

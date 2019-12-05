@@ -105,11 +105,11 @@
         <div class="sdItem">
           <h3>嵌入代码</h3>
           <div>
-            <el-input type="textarea" v-model="shareIframe"></el-input>
+            <el-input type="textarea" class="shareIframe" v-model="shareIframe"></el-input>
           </div>
         </div>
         <div class="sdItem">
-          <iframe class="iframe" :src="this.WEBURL+'?code='+code_guid+'&simple=1'" id="shareframe" ref="shareframe"></iframe>
+          <iframe class="iframe" :src="this.WEBURL+'#/?code='+code_guid+'&simple=1'" id="shareframe" ref="shareframe"></iframe>
         </div>
       </div>
     </el-dialog>

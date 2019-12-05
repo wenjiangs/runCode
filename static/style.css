@@ -67,13 +67,14 @@ body {
   font-size: 14px;
 }
 
-.editNavBar>li>a [class^="el-icon-"]{
+.editNavBar>li>a [class^="el-icon-"] {
   font-size: 16px;
   position: relative;
   bottom: -1px;
 }
 
-.editNavBar>li>a:hover, .editNavBar>li>a.active {
+.editNavBar>li>a:hover,
+.editNavBar>li>a.active {
   background: #f3f5f6;
 }
 
@@ -137,27 +138,30 @@ body {
 }
 
 /* 最小化 */
-.consleBoxSmall .consleBox{
+.consleBoxSmall .consleBox {
   height: 32px;
 }
-.consleBoxSmall .resultBox{
+
+.consleBoxSmall .resultBox {
   padding-bottom: 32px;
 }
 
 /* 中等 */
-.consleBoxMedium .consleBox{
+.consleBoxMedium .consleBox {
   height: 200px;
 }
-.consleBoxMedium .resultBox{
+
+.consleBoxMedium .resultBox {
   padding-bottom: 200px;
 }
 
 /* 最大化 */
-.consleBoxBig .consleBox{
+.consleBoxBig .consleBox {
   height: 100%;
   border: none;
 }
-.consleBoxBig .resultBox{
+
+.consleBoxBig .resultBox {
   display: none;
 }
 
@@ -187,7 +191,7 @@ body {
   font-size: 16px;
 }
 
-.consoleTit i{
+.consoleTit i {
   margin-left: 10px;
 }
 
@@ -472,7 +476,7 @@ div .ace_editor {
   background: #F6F6F6;
 }
 
-#result{
+#result {
   display: none;
 }
 
@@ -481,14 +485,14 @@ div .ace_editor {
     display: none;
   }
 
-  #result{
+  #result {
     display: block;
   }
 
   #delete,
   #save,
   #share,
-  #option{
+  #option {
     display: none;
   }
 
@@ -516,6 +520,7 @@ div .ace_editor {
     font-size: 12px;
     padding-left: 10px;
     float: none;
+    overflow: hidden;
   }
 
   .editNavBar>li>a {
@@ -524,9 +529,14 @@ div .ace_editor {
     font-size: 12px;
     padding: 0 8px;
   }
-  
-  #run{
+
+  #run {
     float: right;
+  }
+
+  div .ace_editor {
+    font-size: 12px;
+    line-height: 18px;
   }
 }
 
@@ -561,14 +571,14 @@ div .ace_editor {
   padding: 0px 4px 5px 4px;
 }
 
-.codeConBox{
+.codeConBox {
   position: absolute;
   height: 100%;
   width: 100%;
   padding-bottom: 32px;
 }
 
-.codeTools{
+.codeTools {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -581,98 +591,110 @@ div .ace_editor {
   height: 32px;
 }
 
-.codeTools span{
+.codeTools span {
   display: inline-block;
 }
-.codeTools .pull-left span{
+
+.codeTools .pull-left span {
   margin-right: 10px;
   cursor: pointer;
 }
-.codeTools .pull-right span{
+
+.codeTools .pull-right span {
   margin-left: 10px;
 }
 
-.ace_content{
+.ace_content {
   background: #f3f5f6;
 }
 
-.infoContent p{
+.infoContent p {
   margin-top: 0;
   line-height: 24px;
 }
-.infoContent p:last-child{
+
+.infoContent p:last-child {
   margin-bottom: 0;
 }
 
-#app .el-dialog--center .el-dialog__body{
+#app .el-dialog--center .el-dialog__body {
   padding-top: 10px;
 }
 
-.sdBox{
+.sdBox {
   height: 300px;
 }
 
-.sdItem{
+.sdItem {
   width: 50%;
   float: left;
   height: 100%;
 }
 
-.sdItem h3:first-child{
+.sdItem h3:first-child {
   margin-top: 0;
 }
 
-.sdItem:first-child{
+.sdItem:first-child {
   width: 40%;
   padding-right: 15px;
 }
-.sdItem:last-child{
+
+.sdItem:last-child {
   width: 60%;
 }
-.sdItem label{
+
+.sdItem label {
   margin-bottom: 6px;
 }
 
-.isShare #topbar{
+.isShare #topbar {
   border-right: 1px solid #EEE;
   border-left: 1px solid #EEE;
   border-top: 1px solid #EEE;
 }
-.isShare .codeConBox{
+
+.isShare .codeConBox {
   border-left: 1px solid #EEE;
 }
-.isShare .codeTools{
+
+.isShare .codeTools {
   border-bottom: 1px solid #EEE;
 }
 
-.isShare .codeTools{
+.isShare .codeTools {
   display: none;
 }
 
-.isShare .codeConBox{
+.isShare .codeConBox {
   padding-bottom: 0;
   border-bottom: 1px solid #EEE;
 }
 
-.isShare .resultBox{
+.isShare .resultBox {
   display: block;
   padding-bottom: 0;
 }
 
-.isShare .consoleChangeBtn{
+.isShare .consoleChangeBtn {
   display: none;
 }
 
-.isShare .iframe{
+.isShare .iframe {
   border-left: 1px solid #EEE;
   border-bottom: 1px solid #EEE;
 }
 
-.isShare .consleBox{
+.isShare .consleBox {
   border: 1px solid #EEE;
   border-top: none;
 }
 
-.isShare .consleBox{
+.isShare .consleBox {
   height: 100%;
+}
+
+.shareIframe textarea {
+  height: 200px;
+  font-size: 12px;
 }

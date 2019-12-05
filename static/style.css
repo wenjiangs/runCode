@@ -1,0 +1,637 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clear {
+  clear: both;
+}
+
+#topbar {
+  width: 100%;
+  float: left;
+  position: absolute;
+  height: 42px;
+  line-height: 50px;
+  z-index: 50;
+  background: #FFF;
+  border-bottom: 1px solid #EEE;
+  position: relative;
+  z-index: 100;
+  padding-right: 15px;
+}
+
+.editNavBar {
+  margin: 0;
+  padding: 0 0 0 30px;
+  float: left;
+}
+
+.navBarUserBox {
+  float: right;
+}
+
+.simpleNav {
+  display: none;
+}
+
+.editNavBar>li {
+  list-style: none;
+  float: left;
+}
+
+.editNavBar>li>a {
+  color: #666;
+  display: block;
+  padding: 0 15px;
+  line-height: 40px;
+  height: 41px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.editNavBar>li>a [class^="el-icon-"]{
+  font-size: 16px;
+  position: relative;
+  bottom: -1px;
+}
+
+.editNavBar>li>a:hover, .editNavBar>li>a.active {
+  background: #f3f5f6;
+}
+
+.editNavBar .dropdown-menu {
+  border-radius: 0;
+  border-color: #EEE;
+  margin: -1px 0 0 0;
+}
+
+#logo {
+  float: left;
+  height: 42px;
+  margin: 0;
+  line-height: 42px;
+  font-family: "Courier New";
+  padding-left: 15px;
+  font-size: 28px;
+}
+
+#logo a {
+  color: #666;
+  text-decoration: none;
+}
+
+.codeContainer {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+  border-bottom: 1px solid #EEE;
+}
+
+.codeContainer textarea {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  font-family: monotype;
+  font-size: .8em;
+  border: none;
+}
+
+.iframe {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 20px;
+  background: #FFF;
+  border: none;
+}
+
+.resultBox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 200px;
+}
+
+/* 最小化 */
+.consleBoxSmall .consleBox{
+  height: 32px;
+}
+.consleBoxSmall .resultBox{
+  padding-bottom: 32px;
+}
+
+/* 中等 */
+.consleBoxMedium .consleBox{
+  height: 200px;
+}
+.consleBoxMedium .resultBox{
+  padding-bottom: 200px;
+}
+
+/* 最大化 */
+.consleBoxBig .consleBox{
+  height: 100%;
+  border: none;
+}
+.consleBoxBig .resultBox{
+  display: none;
+}
+
+.consleBox {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #EEE;
+}
+
+.consoleTit {
+  height: 32px;
+  padding: 0 10px;
+  color: #666;
+  line-height: 30px;
+  border-bottom: 1px solid #F4F4F4;
+  background: #FFF;
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+}
+
+.consoleTit span {
+  float: right;
+  font-size: 16px;
+}
+
+.consoleTit i{
+  margin-left: 10px;
+}
+
+.consoleCon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 32px;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.consoleList {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.consoleItem {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  line-height: 18px;
+  color: #333;
+  font-size: 12px;
+  position: relative;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.consoleItem:after,
+.consoleItem:before {
+  content: '';
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -1px;
+  background: #F4F4F4;
+}
+
+.consoleItem:after {
+  bottom: 0;
+  top: auto;
+}
+
+.consoleItem.error {
+  color: #a94442;
+  background-color: #f2dede;
+}
+
+.consoleItem.error:before,
+.consoleItem.error:after {
+  background: #ebccd1;
+}
+
+.ciPreU {
+  height: 28px;
+  width: 28px;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ciPreU+.ciShow {
+  margin-left: 28px;
+}
+
+.ciShow {
+  width: 100%;
+  /* white-space: pre; */
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.ciShowAlone {
+  margin: 5px 10px;
+}
+
+.codeCon {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 42px;
+}
+
+.libsSearch {
+  position: relative;
+}
+
+.libsSearch button {
+  position: absolute;
+  right: 0;
+}
+
+.libsList {
+  height: 420px;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.libsList li {
+  cursor: pointer;
+  list-style: none;
+  width: 25%;
+  font-size: 14px;
+  float: left;
+  line-height: 32px;
+  font-family: "Courier New";
+  border-bottom: 1px solid #eee;
+}
+
+.libsList li:hover {
+  color: #4BA1E2;
+}
+
+.listPro li {
+  width: 100%;
+}
+
+.runHtmlBC {
+  margin: 10px 0;
+}
+
+.halfWidth {
+  width: 50%;
+}
+
+.marginRight {
+  margin-right: 10px;
+}
+
+.emailFiled {
+  display: none;
+}
+
+.hint {
+  position: fixed;
+  left: 50%;
+  display: none;
+  z-index: 9999999;
+  top: 50%;
+  background: rgba(0, 0, 0, .7);
+  font-size: 16px;
+  color: #FFF;
+  padding: 7px 25px;
+  border-radius: 24px;
+}
+
+.hint a {
+  color: #CCC;
+}
+
+.systemCat li {
+  float: left;
+  width: 25%;
+  font-size: 12px;
+}
+
+.systemCat li a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  line-height: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  top: 42px;
+  border: 1px solid #DDD;
+  min-width: 160px;
+  padding: 10px 0;
+  position: absolute;
+  background: #FFF;
+  box-shadow: 0 0 7px rgba(0, 0, 0, .1);
+  z-index: 102;
+  display: none;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  line-height: 20px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 5px 20px;
+  font-size: 12px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #EEE;
+}
+
+.loginForm {
+  padding: 0 20px;
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid #EEE;
+  background: #FFF;
+  height: 36px;
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+.form-control:focus {
+  border-color: #4BA1E2;
+}
+
+.loginInfo {
+  text-align: right;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.loginInfo span {
+  color: #4BA1E2;
+  cursor: pointer;
+}
+
+.loginInfo span:hover {}
+
+div.el-dialog__body {
+  padding: 20px 30px;
+}
+
+.loginBox .el-dialog {
+  width: 360px;
+}
+
+.navLiUser {
+  line-height: 36px;
+  margin-right: 20px;
+}
+
+.navAvatar {
+  height: 28px;
+  width: 28px;
+  overflow: hidden;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navAvatar img {
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+
+.navName {
+  font-size: 14px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+div .ace_editor {
+  border-right: 1px solid #EEE;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.inputItem {
+  padding: 5px 0;
+}
+
+.ace_gutter-layer {
+  background: #F8F8F8;
+  border-right: 1px solid #EEE;
+}
+
+.ace-chrome .ace_marker-layer .ace_active-line {
+  background: #F6F6F6;
+}
+
+#result{
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .navBarUserBox {
+    display: none;
+  }
+
+  #result{
+    display: block;
+  }
+
+  #delete,
+  #save,
+  #share,
+  #option{
+    display: none;
+  }
+
+  .codeContainer {
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
+
+  #logo {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .codeCon {
+    padding-top: 32px;
+  }
+
+  #topbar {
+    line-height: 32px;
+    height: 32px;
+  }
+
+  .editNavBar {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+
+  .editNavBar>li>a {
+    line-height: 30px;
+    height: 31px;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+}
+
+#app .jv-container.boxed {
+  line-height: 18px;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#app .jv-container .jv-code.open {
+  padding: inherit;
+}
+
+#app .jv-container .jv-code {
+  padding: 8px 10px 12px;
+}
+
+#app .jv-container.jv-light {
+  font-size: 12px;
+}
+
+#app .jv-container .jv-tooltip {
+  top: 3px;
+}
+
+#app .jv-container .jv-toggle {
+  vertical-align: middle;
+}
+
+#app .jv-container.jv-light .jv-ellipsis {
+  padding: 0px 4px 5px 4px;
+}
+
+.codeConBox{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+.codeTools{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 666;
+  border-top: 1px solid #EEE;
+  border-right: 1px solid #EEE;
+  line-height: 30px;
+  font-size: 12px;
+  padding: 0 10px;
+  height: 32px;
+}
+
+.codeTools span{
+  display: inline-block;
+}
+.codeTools .pull-left span{
+  margin-right: 10px;
+  cursor: pointer;
+}
+.codeTools .pull-right span{
+  margin-left: 10px;
+}
+
+.ace_content{
+  background: #f3f5f6;
+}
+
+.infoContent p{
+  margin-top: 0;
+  line-height: 24px;
+}
+.infoContent p:last-child{
+  margin-bottom: 0;
+}
+
+#app .el-dialog--center .el-dialog__body{
+  padding-top: 10px;
+}
+
+.sdBox{
+  height: 300px;
+}
+
+.sdItem{
+  width: 50%;
+  float: left;
+  height: 100%;
+}
+
+.sdItem:first-child{
+  width: 40%;
+  padding-right: 15px;
+}
+.sdItem:last-child{
+  width: 60%;
+}
+.sdItem label{
+  margin-bottom: 6px;
+}
+
+.isShare #topbar{
+  border-right: 1px solid #EEE;
+  border-left: 1px solid #EEE;
+  border-top: 1px solid #EEE;
+}
+.isShare .codeConBox{
+  border-left: 1px solid #EEE;
+}
+.isShare .codeTools{
+  border-bottom: 1px solid #EEE;
+}
